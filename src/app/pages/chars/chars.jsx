@@ -45,7 +45,7 @@ export default class CharPage extends Component {
         <section class="container-fluid">
           <Header
             description="Here you can add, remove and edit chars"
-            icon="snowman"
+            icon="liftWeights"
             title="Chars Editor" >
             <button
               data-target="#charEditorModal"

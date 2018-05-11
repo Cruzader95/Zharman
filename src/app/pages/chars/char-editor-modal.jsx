@@ -29,10 +29,10 @@ export default class CharEditorModal extends Component {
                 STR: <input class="form-control" min="0" max="10" onInput={ (e) => store.setStat('str', e.target.value) } type="number" value={ store.new.stats.str } />
               </div>
               <div class="form-group col-sm-4">
-                DEX: <input class="form-control" min="0" max="10" onInput={ (e) => store.setStat('def', e.target.value) } type="number" value={ store.new.stats.def } />
+                DEF: <input class="form-control" min="0" max="10" onInput={ (e) => store.setStat('def', e.target.value) } type="number" value={ store.new.stats.def } />
               </div>
               <div class="form-group col-sm-4">
-                WIS: <input class="form-control" min="0" max="10" onInput={ (e) => store.setStat('int', e.target.value) } type="number" value={ store.new.stats.int } />
+                INT: <input class="form-control" min="0" max="10" onInput={ (e) => store.setStat('int', e.target.value) } type="number" value={ store.new.stats.int } />
               </div>
               <div class="form-group col">
                 <div class="btn-group btn-group-toggle">

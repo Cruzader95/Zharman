@@ -1,5 +1,7 @@
 import { connect } from 'parket/preact';
 import { Component } from 'preact';
+import $ from 'jquery';
+import jQuery from 'jquery';
 
 // Shared components
 import Icon from '../../components/icon';
@@ -7,6 +9,14 @@ import Modal from '../../components/modal';
 
 @connect
 export default class UserEditorModal extends Component {
+
+  componentDidMount() {
+    $(document).ready(function(){
+      $(".btn").click(function(){
+        $("#newUserForm")[0].reset();
+      })
+    })
+  }
   render ({ store, onSave }) {
     return (
       <Modal id="userEditorModal" title="Add a new User">
@@ -20,7 +30,7 @@ export default class UserEditorModal extends Component {
                 Name: <input class="form-control" required autofocus onInput={ (e) => store.setName(e.target.value) } type="text" value={ store.new.name } placeholder="Name"/>
               </div>
               <div className="form-group col-sm-5">
-                Email: <input class="form-control" required onInput={ (e) => store.setEmail(e.target.value) } type="text" value={ store.new.email } placeholder="Email"/>
+                Email: <input class="form-control" required onInput={ (e) => store.setEmail(e.target.value) } type="email" value={ store.new.email } placeholder="Email"/>
               </div>
               <div className="form-group col-sm-4">
                 Level: <input class="form-control" required onInput={ (e) => store.setLevel(e.target.value) } type="number" value={ store.new.level } placeholder="Level"/>
