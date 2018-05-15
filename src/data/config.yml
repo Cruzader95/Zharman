@@ -4,6 +4,8 @@
       url: /
       label: ⚓ Zharman
     top:
+      - url: /mobs
+        label: Mobs
       - url: /battle
         label: Battle
       - url: /chars

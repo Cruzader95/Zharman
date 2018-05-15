@@ -12,12 +12,14 @@ import BattlePage from './pages/battle/battle';
 import CharsPage from './pages/chars/chars';
 import HomePage from './pages/home/home';
 import UsersPage from './pages/users/users';
+import MobsPage from './pages/mobs/mobs';
 
 const App = () => (
   <main>
     <Menu links={ Config.menu.top } title={ Config.menu.title } />
     <Router>
       <HomePage path="/" />
+      <MobsPage path="/mobs" />
       <BattlePage path="/battle" />
       <CharsPage path="/chars" />
       <UsersPage path="/users" />
