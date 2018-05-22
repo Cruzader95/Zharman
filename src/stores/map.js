@@ -1,14 +1,16 @@
 import axios from 'axios';
 import model from 'parket';
 
-const API_URI = process.env.PREACT_APP_API + '/mobs';
+const API_URI = process.env.PREACT_APP_API + '/maps';
 
-const MobsStore = model('MobsStore', {
+const MapsStore = model('MapsStore', {
   initial: () => ({
     list: [],
     new: {
       name: '',
       picture: '',
+      width: 0,
+      height: 0,
       points: 20,
       race: 0, // 0: Slime, 1: Orc, 2: Mimic
       stats: {
@@ -35,6 +37,8 @@ const MobsStore = model('MobsStore', {
       state.new = {
         name: '',
         picture: '',
+        width: 0,
+        height: 0,
         points: 20,
         race: 0,
         stats: {
@@ -45,10 +49,10 @@ const MobsStore = model('MobsStore', {
         }
       }
     },
-    remove(mob, callback) {
+    remove(map, callback) {
       state.loading = true;
       axios
-        .delete(API_URI + '/' + mob.id)
+        .delete(API_URI + '/' + map.id)
         .then(response => {
           state.load();
           callback(response);
@@ -84,12 +88,12 @@ const MobsStore = model('MobsStore', {
           state.loading = false;
         });
     },
-    select(mob) {
-      state.new.name = mob.name;
-      state.new.picture = mob.picture;
-      state.new.id = mob.id;
-      state.new.stats = mob.stats;
-      state.new.points = mob.points;
+    select(map) {
+      state.new.name = map.name;
+      state.new.picture = map.picture;
+      state.new.width = map.width;
+      state.new.height = map.height;
+      state.new.id = map.id;
     },
     setName (name) {
       state.new.name = name;
@@ -97,16 +101,13 @@ const MobsStore = model('MobsStore', {
     setPicture (picture) {
       state.new.picture = picture;
     },
-    setRace(index) {
-      state.new.race = index
+    setWidth (width) {
+      state.new.width = width;
     },
-    setStat(stat, value) {
-      state.new.stats[stat] = parseInt(value, 10) | 0;
-      state.new.points =
-        state.new.stats.hp + state.new.stats.sp +
-        state.new.stats.str + state.new.stats.def;
-    }
+    setHeight (height) {
+      state.new.height = height;
+    },
   })
 });
 
-export default MobsStore;
+export default MapsStore;

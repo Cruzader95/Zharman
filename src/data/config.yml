@@ -4,6 +4,12 @@
       url: /
       label: ⚓ Zharman
     top:
+      - url: /maps
+        label: Maps
+      - url: /items
+        label: Items
+      - url: /mvp
+        label: Mvps
       - url: /mobs
         label: Mobs
       - url: /battle

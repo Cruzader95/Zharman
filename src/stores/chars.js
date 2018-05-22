@@ -8,6 +8,7 @@ const CharsStore = model('CharsStore', {
     list: [],
     new: {
       name: '',
+      picture: '',
       points: 20,
       race: 0, // 0: Archer, 1: Knight, 2: Mage
       stats: {
@@ -34,6 +35,7 @@ const CharsStore = model('CharsStore', {
     reset() {
       state.new = {
         name: '',
+        picture: '',
         points: 20,
         race: 0,
         stats: {
@@ -86,12 +88,16 @@ const CharsStore = model('CharsStore', {
     },
     select(char) {
       state.new.name = char.name;
+      state.new.picture = char.picture;
       state.new.id = char.id;
       state.new.stats = char.stats;
       state.new.points = char.points;
     },
     setName (name) {
       state.new.name = name;
+    },
+    setPicture (picture) {
+      state.new.picture = picture;
     },
     setRace(index) {
       state.new.race = index

@@ -14,11 +14,10 @@ export default class MobsList extends Component {
 
     this.columns = [
       { label: 'Name', content: this.renderNameColumn.bind(this) },
-      { label: 'HP', content: (mobs) => mobs.stats.hp },
-      { label: 'SP', content: (mobs) => mobs.stats.sp },
-      { label: 'STR', content: (mobs) => mobs.stats.str },
-      { label: 'DEF', content: (mobs) => mobs.stats.def },
-      { label: 'INT', content: (mobs) => mobs.stats.int },
+      { label: 'HP', content: (mob) => mob.stats.hp },
+      { label: 'SP', content: (mob) => mob.stats.sp },
+      { label: 'STR', content: (mob) => mob.stats.str },
+      { label: 'DEF', content: (mob) => mob.stats.def },
       { label: '', content: this.renderActionsColumn.bind(this) }
     ];
   }
@@ -31,21 +30,29 @@ export default class MobsList extends Component {
     }
   }
 
-  renderActionsColumn(mobs) {
+  renderActionsColumn(mob) {
     return (
       <button
         class="btn btn-outline-danger btn-sm badge"
-        onClick={ () => this.props.store.remove(mobs, this.onRemove.bind(this)) }>&times;</button>
+        onClick={ () => this.props.store.remove(mob, this.onRemove.bind(this)) }>&times;</button>
     )
   }
 
-  renderNameColumn(mobs) {
+  renderNameColumn(mob) {
     return (
       <span
         class="btn btn-sm text-primary"
         data-toggle="modal"
-        data-target="#mobsEditorModal"
-        onClick={ () => { this.props.store.select(mobs) } }>{ mobs.name } ({ RACES[mobs.race] })</span>
+        data-target="#mobEditorModal"
+        onClick={ () => { this.props.store.select(mob) } }>
+        <img
+          class="img-responsive rounded-circle mr-2"
+          data-toggle="modal"
+          data-target="#mobEditorModal"
+          onClick={ () => { this.props.store.select(mob) } }
+          src={ mob.picture }
+          height="30" />
+        { mob.name } ({ RACES[mob.race] })</span>
     )
   }
 

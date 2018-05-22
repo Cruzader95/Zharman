@@ -8,19 +8,19 @@ import Icon from '../../components/icon';
 import Modal from '../../components/modal';
 
 @connect
-export default class MobEditorModal extends Component {
+export default class MvpEditorModal extends Component {
   componentDidMount() {
     $(document).ready(function(){
       $(".btn").click(function(){
-        $("#newMobForm")[0].reset();
+        $("#newMvpForm")[0].reset();
       })
     })
   }
   render ({ store, onSave }) {
     return (
-      <Modal id="mobEditorModal" title="Add a new mob">
+      <Modal id="mvpEditorModal" title="Add a new Mvp">
         <div class="modal-body">
-          <form id="newMobForm">
+          <form id="newMvpForm">
             <div class={ 'border-bottom mb-3 py-1 ' + (store.new.points !== 20 && 'text-danger') }>
               Available points: { 20 - store.new.points }
             </div>
@@ -46,13 +46,13 @@ export default class MobEditorModal extends Component {
               <div class="form-group col">
                 <div class="btn-group btn-group-toggle">
                   <label class={ 'btn btn-secondary ' + (store.new.race === 0 ? 'active': '') }>
-                    <input type="radio" onChange={ () => store.setRace(0) } /> Slime
+                    <input type="radio" onChange={ () => store.setRace(0) } /> Demon
                   </label>
                   <label class={ 'btn btn-secondary ' + (store.new.race === 1 ? 'active': '') }>
                     <input type="radio" onChange={ () => store.setRace(1) } /> Orc
                   </label>
                   <label class={ 'btn btn-secondary ' + (store.new.race === 2 ? 'active': '') }>
-                    <input type="radio" onChange={ () => store.setRace(2) } /> Mimic
+                    <input type="radio" onChange={ () => store.setRace(2) } /> Undead
                   </label>
                 </div>
               </div>

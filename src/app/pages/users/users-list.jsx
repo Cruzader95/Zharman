@@ -41,7 +41,15 @@ export default class UsersList extends Component {
         class="btn btn-sm text-primary"
         data-toggle="modal"
         data-target="#userEditorModal"
-        onClick={ () => { this.props.store.select(user) } }>{ user.name }</span>
+        onClick={ () => { this.props.store.select(user) } }>
+        <img
+          class="img-responsive rounded-circle mr-2"
+          data-toggle="modal"
+          data-target="#userEditorModal"
+          onClick={ () => { this.props.store.select(user) } }
+          src={ user.picture }
+          height="30" />
+        { user.name }</span>
     )
   }
 

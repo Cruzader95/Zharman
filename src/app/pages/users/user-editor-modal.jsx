@@ -1,7 +1,6 @@
 import { connect } from 'parket/preact';
 import { Component } from 'preact';
 import $ from 'jquery';
-import jQuery from 'jquery';
 
 // Shared components
 import Icon from '../../components/icon';
@@ -9,7 +8,6 @@ import Modal from '../../components/modal';
 
 @connect
 export default class UserEditorModal extends Component {
-
   componentDidMount() {
     $(document).ready(function(){
       $(".btn").click(function(){
@@ -23,16 +21,19 @@ export default class UserEditorModal extends Component {
         <div class="modal-body">
           <form id="newUserForm">
             <div class="form-row">
-              <div className="form-group col-sm-6">
+              <div className="form-group col-sm-5">
                 Nick: <input class="form-control" required autofocus onInput={ (e) => store.setNickname(e.target.value) } type="text" value={ store.new.nickname } placeholder="Nick"/>
               </div>
-              <div className="form-group col-sm-6">
+              <div className="form-group col-sm-5">
                 Name: <input class="form-control" required autofocus onInput={ (e) => store.setName(e.target.value) } type="text" value={ store.new.name } placeholder="Name"/>
               </div>
-              <div className="form-group col-sm-5">
-                Email: <input class="form-control" required onInput={ (e) => store.setEmail(e.target.value) } type="email" value={ store.new.email } placeholder="Email"/>
+              <div class="form-group col-sm-4">
+                Picture: <input class="form-control" onInput={ (e) => store.setPicture(e.target.value) } type="url" value={ store.new.picture } />
               </div>
               <div className="form-group col-sm-4">
+                Email: <input class="form-control" required onInput={ (e) => store.setEmail(e.target.value) } type="email" value={ store.new.email } placeholder="Email"/>
+              </div>
+              <div className="form-group col-sm-3">
                 Level: <input class="form-control" required onInput={ (e) => store.setLevel(e.target.value) } type="number" value={ store.new.level } placeholder="Level"/>
               </div>
               <div className="form-group col-sm-3">

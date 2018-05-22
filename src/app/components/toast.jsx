@@ -35,6 +35,7 @@ $(document).on('click', '.toast-dismiss', (e) => {
 
 const Toast = ({ name }) => (
   <div class="toast" id={ name } />
+
 );
 
 export default Toast;

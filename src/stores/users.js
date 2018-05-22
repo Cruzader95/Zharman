@@ -10,6 +10,7 @@ const UsersStore = model('UsersStore', {
       email: '',
       level: 0,
       name: '',
+      picture: '',
       nickname: '',
       password: ''
     }
@@ -42,6 +43,7 @@ const UsersStore = model('UsersStore', {
         email: '',
         level: 0,
         name: '',
+        picture: '',
         nickname: '',
         password: ''
       }
@@ -75,12 +77,16 @@ const UsersStore = model('UsersStore', {
     select(user) {
       state.new.id = user.id;
       state.new.name = user.name;
+      state.new.picture = user.picture;
       state.new.email = user.email;
       state.new.nickname = user.nickname;
       state.new.level = user.level;
     },
     setName (name) {
       state.new.name = name;
+    },
+    setPicture (picture) {
+      state.new.picture = picture;
     },
     setNickname (nickname) {
       state.new.nickname = nickname;

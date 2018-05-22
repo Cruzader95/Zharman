@@ -43,9 +43,17 @@ export default class CharsList extends Component {
     return (
       <span
         class="btn btn-sm text-primary"
-        data-toggle="modal"
+        data-toggle="modal"s
         data-target="#charEditorModal"
-        onClick={ () => { this.props.store.select(char) } }>{ char.name } ({ RACES[char.race] })</span>
+        onClick={ () => { this.props.store.select(char) } }>
+        <img
+          class="img-responsive rounded-circle mr-2"
+          data-toggle="modal"
+          data-target="#charEditorModal"
+          onClick={ () => { this.props.store.select(mob) } }
+          src={ char.picture }
+          height="30" />
+        { char.name } ({ RACES[char.race] })</span>
     )
   }
 

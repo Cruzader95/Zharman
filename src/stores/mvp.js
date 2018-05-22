@@ -1,9 +1,9 @@
 import axios from 'axios';
 import model from 'parket';
 
-const API_URI = process.env.PREACT_APP_API + '/mobs';
+const API_URI = process.env.PREACT_APP_API + '/mvp';
 
-const MobsStore = model('MobsStore', {
+const MvpsStore = model('MvpsStore', {
   initial: () => ({
     list: [],
     new: {
@@ -45,10 +45,10 @@ const MobsStore = model('MobsStore', {
         }
       }
     },
-    remove(mob, callback) {
+    remove(mvp, callback) {
       state.loading = true;
       axios
-        .delete(API_URI + '/' + mob.id)
+        .delete(API_URI + '/' + mvp.id)
         .then(response => {
           state.load();
           callback(response);
@@ -84,12 +84,12 @@ const MobsStore = model('MobsStore', {
           state.loading = false;
         });
     },
-    select(mob) {
-      state.new.name = mob.name;
-      state.new.picture = mob.picture;
-      state.new.id = mob.id;
-      state.new.stats = mob.stats;
-      state.new.points = mob.points;
+    select(mvp) {
+      state.new.name = mvp.name;
+      state.new.picture = mvp.picture;
+      state.new.id = mvp.id;
+      state.new.stats = mvp.stats;
+      state.new.points = mvp.points;
     },
     setName (name) {
       state.new.name = name;
@@ -109,4 +109,4 @@ const MobsStore = model('MobsStore', {
   })
 });
 
-export default MobsStore;
+export default MvpsStore;
