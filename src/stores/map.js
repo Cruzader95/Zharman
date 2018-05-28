@@ -10,15 +10,7 @@ const MapsStore = model('MapsStore', {
       name: '',
       picture: '',
       width: 0,
-      height: 0,
-      points: 20,
-      race: 0, // 0: Slime, 1: Orc, 2: Mimic
-      stats: {
-        hp: 4,
-        sp: 4,
-        str: 4,
-        def: 4
-      }
+      height: 0
     },
     loading: true
   }),
@@ -38,15 +30,7 @@ const MapsStore = model('MapsStore', {
         name: '',
         picture: '',
         width: 0,
-        height: 0,
-        points: 20,
-        race: 0,
-        stats: {
-          hp: 4,
-          sp: 4,
-          str: 4,
-          def: 4
-        }
+        height: 0
       }
     },
     remove(map, callback) {

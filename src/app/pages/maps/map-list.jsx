@@ -49,11 +49,13 @@ export default class MapsList extends Component {
 
   renderPictureColumn(map) {
     return (
-      <span
-        class="btn btn-sm text-primary"
+      <img
+        class="img-responsive rounded-circle mr-2"
         data-toggle="modal"
         data-target="#mapEditorModal"
-        onClick={ () => { this.props.store.select(map) } }>{ map.picture }</span>
+        onClick={ () => { this.props.store.select(map) } }
+        src={ map.picture }
+        height="30" />
     )
   }
 
@@ -85,24 +87,7 @@ export default class MapsList extends Component {
           data={ store.list }
           footer={ `Total: ${ store.list.length }` }
           loading={ store.loading } />
-        <div class="form-group">
-          <label for="mapscripts">Add Map Scripts: </label>
-          <textarea class="form-control" id="mapscripts" rows="3"></textarea>
-        </div>
-        <button
-          class="btn btn-sm btn-primary ml-auto btnScript"
-          type="button">
-          ➕ Add Script
-        </button>
-        <div class="form-group">
-          <label for="mapwarps">Add Warps: </label>
-          <textarea class="form-control sndArea" id="mapwarpsm" rows="3"></textarea>
-        </div>
-        <button
-          class="btn btn-sm btn-primary ml-auto btnScript"
-          type="button">
-          ➕ Add Warp
-        </button>
+
       </section>
     );
   }

@@ -1,6 +1,5 @@
 import { connect } from 'parket/preact';
 import { Component } from 'preact';
-import $ from 'jquery';
 
 // Shared components
 import Icon from '../../components/icon';
@@ -8,13 +7,7 @@ import Modal from '../../components/modal';
 
 @connect
 export default class CharEditorModal extends Component {
-  componentDidMount() {
-    $(document).ready(function(){
-      $(".btn").click(function(){
-        $("#newCharForm")[0].reset();
-      })
-    })
-  }
+
   render ({ store, onSave }) {
     return (
       <Modal id="charEditorModal" title="Add a new char">

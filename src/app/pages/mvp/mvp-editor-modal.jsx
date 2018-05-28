@@ -1,7 +1,6 @@
 import { connect } from 'parket/preact';
 import { Component } from 'preact';
-import $ from 'jquery';
-import { reset } from 'jquery';
+
 
 // Shared components
 import Icon from '../../components/icon';
@@ -9,13 +8,6 @@ import Modal from '../../components/modal';
 
 @connect
 export default class MvpEditorModal extends Component {
-  componentDidMount() {
-    $(document).ready(function(){
-      $(".btn").click(function(){
-        $("#newMvpForm")[0].reset();
-      })
-    })
-  }
   render ({ store, onSave }) {
     return (
       <Modal id="mvpEditorModal" title="Add a new Mvp">

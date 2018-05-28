@@ -28,12 +28,10 @@ export default class MapsPage extends Component {
 
   onSaveDone(response) {
     if (response.status === 200 && response.data) {
-      Toaster.success('top', 'Successfully saved '
-        + store.new.name + store.new.picture + store.new.width + store.new.height );
+      Toaster.success('top', 'Successfully saved ' + store.new.name );
       $('#mapsEditorModal').modal('hide');
     } else {
-      Toaster.error('top', 'Error while saving ' + store.new.name
-        + store.new.picture + store.new.width + store.new.height);
+      Toaster.error('top', 'Error while saving ' + store.new.name);
     }
   }
 

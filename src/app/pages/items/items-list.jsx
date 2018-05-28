@@ -46,14 +46,14 @@ export default class ItemsList extends Component {
 
   renderPictureColumn(items) {
     return (
-      <span
+      <img
         class="img-responsive rounded-circle mr-2"
         data-toggle="modal"
         data-target="#itemsEditorModal"
         onClick={ () => { this.props.store.select(items) } }
         src={ items.picture }
         height="30">
-        { items.picture }</span>
+        { items.picture }</img>
     )
   }
 
@@ -65,15 +65,6 @@ export default class ItemsList extends Component {
           data={ store.list }
           footer={ `Total: ${ store.list.length }` }
           loading={ store.loading } />
-        <div class="form-group">
-          <label for="itemscripts">Add Items Scripts: </label>
-          <textarea class="form-control" id="itemscripts" rows="3"></textarea>
-        </div>
-        <button
-          class="btn btn-sm btn-primary ml-auto btnScript"
-          type="button">
-          ➕ Add Script
-        </button>
       </section>
     );
   }

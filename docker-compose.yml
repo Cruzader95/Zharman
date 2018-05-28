@@ -10,7 +10,7 @@ php-fpm:
 nginx:
     build: docker/nginx
     ports:
-        - 9200:80
+        - 9002:80
     volumes:
         - ./:/var/www/html/
     links:
