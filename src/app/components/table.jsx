@@ -13,7 +13,7 @@ const Table = ({ cols, data, footer, loading }) => (
     </thead>
     <tbody>
       {
-        loading === false && data && data.map( row => (
+        loading === false && data && data.map && data.map( row => (
           <tr>
             {
               cols && cols.map( (column) => (

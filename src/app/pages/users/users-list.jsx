@@ -7,6 +7,7 @@ import Table from '../../components/table';
 
 @connect
 export default class UsersList extends Component {
+
   constructor(props) {
     super(props);
 

@@ -2671,7 +2671,7 @@ event-stream@~3.3.0:
     stream-combiner "~0.0.4"
     through "~2.3.1"
 
-eventemitter3@^3.0.0:
+eventemitter3@^3.0.0, eventemitter3@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.0.tgz#090b4d6cdbd645ed10bf750d4b5407942d7ba163"
 
@@ -5211,9 +5211,19 @@ pend@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/pend/-/pend-1.2.0.tgz#7a57eb550a6783f9115331fcf4663d5c8e007a50"
 
+perlin@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/perlin/-/perlin-1.0.0.tgz#3e53ebf5d6555a277c4586772338386782d9f52b"
+
 persist-path@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/persist-path/-/persist-path-1.0.2.tgz#b7b9475365b5ccf038aafa55af12b0dd8c418d7a"
+
+phaser@^3.9.0:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/phaser/-/phaser-3.9.0.tgz#0ac6465031b0a14a4af4320faf95f39f671599d7"
+  dependencies:
+    eventemitter3 "^3.1.0"
 
 pify@^2.0.0:
   version "2.3.0"

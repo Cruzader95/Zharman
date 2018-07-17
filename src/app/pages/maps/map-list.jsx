@@ -15,17 +15,16 @@ export default class MapsList extends Component {
       { label: 'Picture',content: this.renderPictureColumn.bind(this) },
       { label: 'Width',content: this.renderWidthColumn.bind(this) },
       { label: 'Height',content: this.renderHeightColumn.bind(this) },
+      { label: 'Warps',content: this.renderWarpsColumn.bind(this) },
       { label: '', content: this.renderActionsColumn.bind(this) }
     ];
   }
 
   onRemove(response) {
     if (response.status === 200 && response.data) {
-      Toaster.success('top', 'Successfully removed ' + this.props.store.new.name
-        + this.props.store.new.picture + this.props.store.new.width + this.props.store.new.height);
+      Toaster.success('top', 'Successfully removed ' + this.props.store.new.name);
     } else {
-      Toaster.error('top', 'Error while removing ' + this.props.store.new.name
-        + this.props.store.new.picture + this.props.store.new.width + this.props.store.new.height);
+      Toaster.error('top', 'Error while removing ' + this.props.store.new.name);
     }
   }
 
@@ -42,9 +41,10 @@ export default class MapsList extends Component {
       <span
         class="btn btn-sm text-primary"
         data-toggle="modal"
-        data-target="#mapEditorModal"
+        data-target="#mapsEditorModal"
         onClick={ () => { this.props.store.select(map) } }>{ map.name }</span>
     )
+
   }
 
   renderPictureColumn(map) {
@@ -52,7 +52,7 @@ export default class MapsList extends Component {
       <img
         class="img-responsive rounded-circle mr-2"
         data-toggle="modal"
-        data-target="#mapEditorModal"
+        data-target="#mapsEditorModal"
         onClick={ () => { this.props.store.select(map) } }
         src={ map.picture }
         height="30" />
@@ -64,7 +64,7 @@ export default class MapsList extends Component {
       <span
         class="btn btn-sm text-primary"
         data-toggle="modal"
-        data-target="#mapEditorModal"
+        data-target="#mapsEditorModal"
         onClick={ () => { this.props.store.select(map) } }>{ map.width }</span>
     )
   }
@@ -74,8 +74,18 @@ export default class MapsList extends Component {
       <span
         class="btn btn-sm text-primary"
         data-toggle="modal"
-        data-target="#mapEditorModal"
+        data-target="#mapsEditorModal"
         onClick={ () => { this.props.store.select(map) } }>{ map.height }</span>
+    )
+  }
+
+  renderWarpsColumn(map) {
+    return (
+      <span
+        class="btn btn-sm text-primary"
+        data-toggle="modal"
+        data-target="#mapsEditorModal"
+        onClick={ () => { this.props.store.select(map) } }>{ map.warps }</span>
     )
   }
 

@@ -5,9 +5,28 @@ import { Component } from 'preact';
 import Icon from '../../components/icon';
 import Modal from '../../components/modal';
 
+import MapGenerator from './MapGenerator.jsx'
+
 @connect
 export default class MapsEditorModal extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      warps: []
+    };
+  }
+  getClickedCell(x, y) {
+    let newWarps = this.state.warps;
+
+    newWarps.push([x, y]);
+
+    this.setState({
+      warps: newWarps
+    });
+  }
   render ({ store, onSave }) {
+
+    if(this.setPicture == '') store.new.picture = 'https://i.imgur.com/rlwz1Pu.png?1';
     return (
       <Modal id="mapsEditorModal" title="Add a new Map">
         <div class="modal-body">
@@ -56,8 +75,14 @@ export default class MapsEditorModal extends Component {
             </div>
           </div>
 
-          <div role="tabpanel" class="tab-pane fade" id="mapsdemo">Section in Development :D</div>
+          <div role="tabpanel" class="tab-pane fade" id="mapsdemo">
+            <MapGenerator onClick={ this.getClickedCell.bind(this) } warps={ this.state.warps }/>
+            <p onChange={(e) => store.setWarps(e.target.value)} value={ store.new.warps }>{ JSON.stringify(this.state.warps) }</p>
+
+          </div>
+
         </div>
+
         <div class="modal-footer">
           <button
             class="btn btn-secondary"

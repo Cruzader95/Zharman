@@ -10,7 +10,8 @@ const MapsStore = model('MapsStore', {
       name: '',
       picture: '',
       width: 0,
-      height: 0
+      height: 0,
+      warps: {}
     },
     loading: true
   }),
@@ -30,7 +31,8 @@ const MapsStore = model('MapsStore', {
         name: '',
         picture: '',
         width: 0,
-        height: 0
+        height: 0,
+        warps: {}
       }
     },
     remove(map, callback) {
@@ -77,6 +79,7 @@ const MapsStore = model('MapsStore', {
       state.new.picture = map.picture;
       state.new.width = map.width;
       state.new.height = map.height;
+      state.new.warps = map.warps;
       state.new.id = map.id;
     },
     setName (name) {
@@ -91,6 +94,9 @@ const MapsStore = model('MapsStore', {
     setHeight (height) {
       state.new.height = height;
     },
+    setWarps (warps) {
+      state.new.warps = warps;
+    }
   })
 });
 

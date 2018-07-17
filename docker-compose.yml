@@ -25,3 +25,5 @@ db:
         MYSQL_USER: zharman
         MYSQL_PASSWORD: zharman
         MYSQL_ROOT_PASSWORD: zharman
+    ports:
+        - "3306:3306"
